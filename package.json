@@ -12,7 +12,8 @@
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "make-admin": "node --env-file=.env.local --experimental-strip-types scripts/make-admin.ts",
-    "test:db": "vitest run --config vitest.db.config.mts"
+    "test:db": "vitest run --config vitest.db.config.mts",
+    "seed:cameras": "node --env-file=.env.local --experimental-strip-types scripts/seed-store-cameras.ts"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1161.0",

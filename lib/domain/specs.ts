@@ -11,6 +11,7 @@ export const LENS_MOUNTS = {
   mft: "Micro Four Thirds",
   "pentax-k": "Pentax K",
   "minolta-sr": "Minolta SR / MD",
+  "minolta-a": "Minolta / Sony A",
   "olympus-om": "Olympus OM",
   m42: "M42 screw mount",
   "leica-m": "Leica M",
@@ -37,6 +38,7 @@ export type Sensor = keyof typeof SENSORS;
 export const FILM_FORMATS = {
   "35mm": "35mm",
   "half-frame": "Half frame (35mm)",
+  aps: "APS",
   "120": "Medium format (120)",
   instant: "Instant",
   "large-format": "Large format",

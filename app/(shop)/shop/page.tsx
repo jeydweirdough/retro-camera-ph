@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { CatalogSkeleton, CatalogView } from "@/components/catalog/catalog-view";
-import { Breadcrumbs } from "@/components/layout/breadcrumbs";
+import { ShopHeader } from "@/components/catalog/shop-header";
 
 export const metadata: Metadata = {
   title: "Shop all camera gear",
@@ -13,8 +13,11 @@ export const metadata: Metadata = {
 export default function ShopPage({ searchParams }: PageProps<"/shop">) {
   return (
     <>
-      <Breadcrumbs crumbs={[{ name: "Shop", href: "/shop" }]} />
-      <h1 className="text-3xl font-semibold tracking-tight">Shop all camera gear</h1>
+      <ShopHeader
+        title="Shop all"
+        intro="New and vintage cameras, lenses and accessories. Every used piece is checked and graded before it reaches you."
+        crumbs={[{ name: "Shop", href: "/shop" }]}
+      />
       <Suspense fallback={<CatalogSkeleton />}>
         <CatalogView searchParams={searchParams} path="/shop" />
       </Suspense>

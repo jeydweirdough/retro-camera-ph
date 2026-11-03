@@ -226,7 +226,32 @@
   -webkit-text-stroke: 1.5px rgb(31 22 12 / 0.18);
 }
 
+/* ---------- Shop pages ---------- */
+/* Rises in on mount. CSS only, so cards that arrive on a client navigation animate too. */
+@keyframes shop-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 28px, 0) scale(0.97);
+    filter: blur(8px);
+  }
+}
+.shop-rise {
+  animation: shop-rise 800ms cubic-bezier(0.2, 0.7, 0.1, 1) backwards;
+  animation-delay: calc(var(--i, 0) * 70ms);
+}
+.shop-filters > summary::-webkit-details-marker {
+  display: none;
+}
+/* Desktop always shows the filters, even if the panel was collapsed on a small screen. */
+@media (min-width: 1024px) {
+  .shop-filters::details-content {
+    content-visibility: visible;
+    block-size: auto;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .shop-rise,
   .home-float,
   .home-shimmer,
   .home-gradient-text,

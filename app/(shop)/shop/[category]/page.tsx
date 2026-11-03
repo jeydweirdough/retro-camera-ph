@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { CatalogSkeleton, CatalogView } from "@/components/catalog/catalog-view";
-import { Breadcrumbs } from "@/components/layout/breadcrumbs";
+import { ShopHeader } from "@/components/catalog/shop-header";
 import { CATEGORIES, categoryBySlug } from "@/lib/domain/categories";
 
 export function generateStaticParams() {
@@ -32,16 +32,15 @@ export default async function CategoryPage({ params, searchParams }: PageProps<"
 
   return (
     <>
-      <Breadcrumbs
+      <ShopHeader
+        title={category.label}
+        intro={category.description}
+        active={category.type}
         crumbs={[
           { name: "Shop", href: "/shop" },
           { name: category.label, href: path },
         ]}
       />
-      <div className="flex flex-col gap-2">
-        <h1 className="text-3xl font-semibold tracking-tight">{category.label}</h1>
-        <p className="text-zinc-600 dark:text-zinc-400">{category.description}</p>
-      </div>
       <Suspense fallback={<CatalogSkeleton />}>
         <CatalogView searchParams={searchParams} path={path} type={category.type} />
       </Suspense>
