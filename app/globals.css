@@ -12,6 +12,26 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/*
+ * Retro Camera PH brand orange (#f76c43, sampled from the logo) and its shades.
+ * Contrast-checked pairings: text-brand-700 on white 6.6:1, white on
+ * brand-700 6.6:1, brand-400 on dark backgrounds 8.4:1. Use brand-600 or
+ * darker for focus rings (brand-500 on white is only 2.9:1).
+ */
+@theme {
+  --color-brand-50: #fef3f0;
+  --color-brand-100: #fee7e1;
+  --color-brand-200: #fcd0c3;
+  --color-brand-300: #fbae98;
+  --color-brand-400: #f98969;
+  --color-brand-500: #f76c43;
+  --color-brand-600: #cb5937;
+  --color-brand-700: #99432a;
+  --color-brand-800: #7c3622;
+  --color-brand-900: #632b1b;
+  --color-brand-950: #3b1a10;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -22,5 +42,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
 }
